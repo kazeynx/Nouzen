@@ -22,10 +22,21 @@
   Nouzen is an existence that helps you make your server more automatic by simplifying tasks, managing roles, moderating chats, and providing seamless integration of powerful features. With Nouzen, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server.
     <br />
     <br />
-  <a href="#〔〕Notice ">Test</a>
+    </p>
+  <p align="center">
+
+    
+  <a href="#-resource-links">Resource Links</a>
   •
-  <a href="#installation">Installation</a>
-  </p>
+  <a href="#〔-notice〕notice">Notice</a>
+  •
+  <a href="#〔-prerequisites〕prerequisites">Prerequisites</a>
+  •
+  <a href="#〔-getting-started〕getting-started">Getting Started</a>
+  •
+  <a href="#〔-features〕features">Features</a>
+</p>
+
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700131393609818.gif" width="20px" height="20px"> 〕Notice 
 Nouzen is a bot I personally built with care, and I hope it helps make your server life easier. Please don’t claim it as your own—it takes a lot of time and effort to build something like this! If you find any bugs or have ideas for new features, feel free to report them or suggest improvements. Let’s make Nouzen even better together!
