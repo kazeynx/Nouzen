@@ -28,7 +28,7 @@
     
   <a href="#-resource-links">Resource Links</a>
   •
-  <a href="#〔-notice〕notice">Notice</a>
+  <a href="#〔 -notice 〕notice">Notice</a>
   •
   <a href="#〔-prerequisites〕prerequisites">Prerequisites</a>
   •
