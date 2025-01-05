@@ -1,5 +1,6 @@
 <h2 align="center">
 <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1322941409711620136/standard_5.gif?ex=677b4673&is=6779f4f3&hm=81ec317f31b77b9a2d8f4acc145e8342de29b33b38e4af61e30198e9ccd5f650&"/>
+  
 [![Version][version-shield]](version-url)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -7,7 +8,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 </h2>
-
 <br />
 <br />
 
@@ -49,10 +49,7 @@ Nouzen isn’t just a bot—it’s like having a personal assistant for your ser
 - Node.js v17+
 - Discord Token (via [Discord Developer Portal](https://discord.com/developers/applications))
 - MongoDB URL (via [MongoDB](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters))
-- Giphy API Key (via [Giphy Developers Portal](https://developers.giphy.com/))
-- OpenAI API Key (via [OpenAI Developers Portal](https://beta.openai.com/account/api-keys))
 - Discord Client ID (via [Discord Developer Portal](https://discord.com/developers/applications))
-- Spotify Client ID and Secret (via [Spotify Developer Portal](https://developer.spotify.com/dashboard/login))
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034743095453036555.gif" width="20px" height="20px"> 〕Installation Guide
 Clone the repo by running
@@ -67,17 +64,17 @@ npm install
 To start your bot 
 
 ```js
-node src/index.js
+node .
 ```
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700333886214265.gif" width="20px" height="20px"> 〕Support Server
 [![Discord](https://discordapp.com/api/guilds/1038065019205713971/widget.png?style=banner3)](https://discord.com/invite/USTAWBKyZT)
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1325393503207034950.gif" width="20px" height="20px"> 〕Faq
-> How to get access to Developers Commands? You will have to set them up via MongoDB or run the below command.
+> why the commands only 3?
 
 ```bash
-npm run add-dev YOUR_Discord_ID
+commands only 3 cus the bot still on proggress
 ```
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034742361227542579.gif" width="20px" height="20px"> 〕Support Me
