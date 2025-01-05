@@ -22,7 +22,7 @@
   Nouzen is an existence that helps you make your server more automatic by simplifying tasks, managing roles, moderating chats, and providing seamless integration of powerful features. With Nouzen, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server.
     <br />
     <br />
-  <a href="#-Notice">Installation</a>
+  <a href="#〔〕Notice ">Test</a>
   •
   <a href="#installation">Installation</a>
   </p>
