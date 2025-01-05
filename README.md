@@ -34,6 +34,8 @@
   •
   <a href="#license">License</a>
   </p>
+  
+#Overview
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700131393609818.gif" width="20px" height="20px"> 〕Notice 
 Nouzen is a bot I personally built with care, and I hope it helps make your server life easier. Please don’t claim it as your own—it takes a lot of time and effort to build something like this! If you find any bugs or have ideas for new features, feel free to report them or suggest improvements. Let’s make Nouzen even better together!
