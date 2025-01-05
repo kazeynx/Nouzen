@@ -1,6 +1,6 @@
 <h2 align="center">
 <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1322941409711620136/standard_5.gif?ex=677b4673&is=6779f4f3&hm=81ec317f31b77b9a2d8f4acc145e8342de29b33b38e4af61e30198e9ccd5f650&"/>
-
+![image](https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif)
 [![Version][version-shield]](version-url)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -22,20 +22,10 @@
   Nouzen is an existence that helps you make your server more automatic by simplifying tasks, managing roles, moderating chats, and providing seamless integration of powerful features. With Nouzen, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server.
     <br />
     <br />
-  <a href="#overview">Overview</a>
+  <a href="#-Notice">Installation</a>
   •
   <a href="#installation">Installation</a>
-  •
-  <a href="http://docs.discord.red/en/stable/index.html">Documentation</a>
-  •
-  <a href="#plugins">Plugins</a>
-  •
-  <a href="#join-the-community">Community</a>
-  •
-  <a href="#license">License</a>
   </p>
-  
-# Overview
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700131393609818.gif" width="20px" height="20px"> 〕Notice 
 Nouzen is a bot I personally built with care, and I hope it helps make your server life easier. Please don’t claim it as your own—it takes a lot of time and effort to build something like this! If you find any bugs or have ideas for new features, feel free to report them or suggest improvements. Let’s make Nouzen even better together!
