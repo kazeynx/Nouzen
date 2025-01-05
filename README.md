@@ -22,11 +22,18 @@
   Nouzen is an existence that helps you make your server more automatic by simplifying tasks, managing roles, moderating chats, and providing seamless integration of powerful features. With Nouzen, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server.
     <br />
     <br />
-    <a href="https://github.com/kazeynx/Nouzen/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/kazeynx/Nouzen/issues">Request Feature</a>
+  <a href="#overview">Overview</a>
+  •
+  <a href="#installation">Installation</a>
+  •
+  <a href="http://docs.discord.red/en/stable/index.html">Documentation</a>
+  •
+  <a href="#plugins">Plugins</a>
+  •
+  <a href="#join-the-community">Community</a>
+  •
+  <a href="#license">License</a>
   </p>
-</p>
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700131393609818.gif" width="20px" height="20px"> 〕Notice 
 Nouzen is a bot I personally built with care, and I hope it helps make your server life easier. Please don’t claim it as your own—it takes a lot of time and effort to build something like this! If you find any bugs or have ideas for new features, feel free to report them or suggest improvements. Let’s make Nouzen even better together!
@@ -36,18 +43,17 @@ Nouzen isn’t just a bot—it’s like having a personal assistant for your ser
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034743128915189770.gif" width="20px" height="20px"> 〕Feature
 - [x] Slash Commands 
-- [x] using Discord.js v14
-- [x] Moderation
-- [x] Store
+- [x] Built on Discord.js v14
+- [x] Moderation Tools
+- [x] Online Store Support
 - [x] Music Commands
-- [x] Tickets
-- [x] Utility Commands
-- [x] Suggestions 
+- [x] Ticketing System
+- [x] Utility Features
 - [x] Reaction Roles
-- [x] Giveaways 
-- [x] Easy to use
-- [x] Customizable
-- [x] And much more
+- [x] Giveaways
+- [x] Custom Commands
+- [x] Easy Customization
+- [x] Much More
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034748631045111839.gif" width="20px" height="20px"> 〕Requirements
 - NodeJs v17+
@@ -87,7 +93,7 @@ node src/index.js
 npm run add-dev YOUR_Discord_ID
 ```
 
-## 〔 <img src="https://cdn.discordapp.com/emojis/1034742361227542579.gif" width="20px" height="20px"> 〕Support Me on Trakteer
+## 〔 <img src="https://cdn.discordapp.com/emojis/1034742361227542579.gif" width="20px" height="20px"> 〕Support Me
 <a href="https://trakteer.id/kazeynx" target="_blank"><img id="wse-buttons-preview" src="https://edge-cdn.trakteer.id/images/embed/trbtn-red-1.png?date=18-11-2023" height="40" style="border:0px;height:40px;" alt="Trakteer Saya"></a>
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034750230278721577.gif" width="20px" height="20px"> 〕Screenshots
