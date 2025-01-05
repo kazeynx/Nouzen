@@ -32,8 +32,22 @@ module.exports = (client) => {
           Routes.applicationCommands(clientId),
           { body: commands }
         );        
-        console.log(`${colors.cyan(colors.bold(client.user.username))} | Started refreshing application (/) commands.`);
-        console.log(`${colors.cyan(colors.bold(client.user.username))} | Successfully reloaded application (/) commands.`);
+        //console.log(`${colors.cyan(colors.bold(client.user.username))} | Started refreshing application (/) commands.`);
+        //console.log(`${colors.cyan(colors.bold(client.user.username))} | Successfully reloaded application (/) commands.`);
+        const centerText = (text) => {
+                   const terminalWidth = process.stdout.columns;
+                   const textLength = text.replace(/\x1B\[\d+m/g, "").length;
+                   const padding = Math.max((terminalWidth - textLength) / 2, 0);
+                   return " ".repeat(Math.floor(padding)) + text;};
+                   const kazeynx =`
+${colors.cyan(colors.bold(`|`))} ${colors.white(colors.bold(`Started refreshing application (/) commands. `))}${colors.cyan(colors.bold(`|`))}
+${colors.cyan(colors.bold(`|`))} ${colors.white(colors.bold(`Successfully reloaded application (/) commands. `))}${colors.cyan(colors.bold(`|`))}
+${colors.cyan(colors.bold(`|`))} ${colors.white(colors.bold(`${client.commands.size} Commands | ${client.guilds.cache.size} Guilds | ${client.channels.cache.size} Channels | ${client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)} Users `))}${colors.cyan(colors.bold(`|`))}`;
+                   const kazeynxTerm = kazeynx
+                          .split("\n")
+                          .map((line) => centerText(line))
+                          .join("\n");
+                   console.log(kazeynxTerm);
       } catch (error) {
         console.error('Error reloading commands:', error);
       }

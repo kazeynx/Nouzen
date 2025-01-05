@@ -7,6 +7,7 @@ const { discord, colorsHex } = require(`./config/bot.js`);
 const { startLog, startError } = require('./config/webhook.json');
 const packageJson = require('../package.json');
 const colors = require("colors");
+const commandUsage = new Map();
 client.commands = new Collection();
 
 loadHandlers(client);
@@ -59,10 +60,8 @@ client.once('ready', async () => {
   
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return;
-
   const command = client.commands.get(interaction.commandName);
   if (!command) return;
-
   try {
     await command.execute(interaction);
     console.log(
