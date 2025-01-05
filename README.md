@@ -1,6 +1,5 @@
 <h2 align="center">
 <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1322941409711620136/standard_5.gif?ex=677b4673&is=6779f4f3&hm=81ec317f31b77b9a2d8f4acc145e8342de29b33b38e4af61e30198e9ccd5f650&"/>
-![image](https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif)
 [![Version][version-shield]](version-url)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -22,21 +21,10 @@
   Nouzen is an existence that helps you make your server more automatic by simplifying tasks, managing roles, moderating chats, and providing seamless integration of powerful features. With Nouzen, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server.
     <br />
     <br />
-    </p>
-  <p align="center">
-
-    
-  <a href="#-resource-links">Resource Links</a>
-  •
-  <a href="#〔 - 〕notice">Notice</a>
-  •
-  <a href="#〔-prerequisites〕prerequisites">Prerequisites</a>
-  •
-  <a href="#〔-getting-started〕getting-started">Getting Started</a>
-  •
-  <a href="#〔-features〕features">Features</a>
-</p>
-
+    <a href="https://github.com/kazeynx/Nouzen/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/kazeynx/Nouzen/issues">Request Feature</a>
+  </p>
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034700131393609818.gif" width="20px" height="20px"> 〕Notice 
 Nouzen is a bot I personally built with care, and I hope it helps make your server life easier. Please don’t claim it as your own—it takes a lot of time and effort to build something like this! If you find any bugs or have ideas for new features, feel free to report them or suggest improvements. Let’s make Nouzen even better together!
@@ -49,7 +37,6 @@ Nouzen isn’t just a bot—it’s like having a personal assistant for your ser
 - [x] Built on Discord.js v14
 - [x] Moderation Tools
 - [x] Online Store Support
-- [x] Music Commands
 - [x] Ticketing System
 - [x] Utility Features
 - [x] Reaction Roles
@@ -59,18 +46,15 @@ Nouzen isn’t just a bot—it’s like having a personal assistant for your ser
 - [x] Much More
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034748631045111839.gif" width="20px" height="20px"> 〕Requirements
-- NodeJs v17+
-- Java v13 for lavalink server.
-- Discord Token. Get it from [Discord Developers Portal](https://discord.com/developers/applications)
-- Mongo Database URL. Get it from [MongoDB](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters)
-- Giphy API Token. Get it from [Giphy Developers Portal](https://developers.giphy.com/)
-- OpenAI API Key `for ai chatbot`. Get it from [OpenAi Developers Portal](https://beta.openai.com/account/api-keys)
-- ClientID `for loading slash commands.` [Discord Developers Portal](https://discord.com/developers/applications)
-- Spotify client ID `for Spotify support` [Click here to get](https://developer.spotify.com/dashboard/login)
-- Spotify client Secret `for Spotify support` [Click here to get](https://developer.spotify.com/dashboard/login)
+- Node.js v17+
+- Discord Token (via [Discord Developer Portal](https://discord.com/developers/applications))
+- MongoDB URL (via [MongoDB](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters))
+- Giphy API Key (via [Giphy Developers Portal](https://developers.giphy.com/))
+- OpenAI API Key (via [OpenAI Developers Portal](https://beta.openai.com/account/api-keys))
+- Discord Client ID (via [Discord Developer Portal](https://discord.com/developers/applications))
+- Spotify Client ID and Secret (via [Spotify Developer Portal](https://developer.spotify.com/dashboard/login))
 
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034743095453036555.gif" width="20px" height="20px"> 〕Installation Guide
-### <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="15px" height="15px"> Installing via [NPM](https://www.npmjs.com/)
 Clone the repo by running
 ```bash
 git clone https://github.com/kazeynx/Nouzen.git
@@ -102,17 +86,17 @@ npm run add-dev YOUR_Discord_ID
 ## 〔 <img src="https://cdn.discordapp.com/emojis/1034750230278721577.gif" width="20px" height="20px"> 〕Screenshots
 <br />
 <p align="center">
-  <a href="https://github.com/corwindev/discord-bot">
+  <a href="https://github.com/kazeynx/Nouzen">
     <img src="https://media.discordapp.net/attachments/1322940109036851282/1325363934357749790/terminal.png?ex=677b84da&is=677a335a&hm=2860c24970ce1ea03178d0728d0ddd03580afb2750779628ba13dc2536a68f67&=&format=webp&quality=lossless&width=440&height=350">
   </a>
   </p>
 <p align="center">
-    <a href="https://github.com/corwindev/discord-bot">
+    <a href="https://github.com/kazeynx/Nouzen">
     <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1325379568395354143/image.png?ex=677b9369&is=677a41e9&hm=156c6c7bfa5ab62fd4486a6773037f18555a2ef604f55bcb86ce11b041c265f6&">
   </a>
   </p>
 <p align="center">
-      <a href="https://github.com/corwindev/discord-bot">
+      <a href="https://github.com/kazeynx/Nouzen">
     <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1325380024471261276/image.png?ex=677b93d6&is=677a4256&hm=496dca0dc7d55641615bc22462f1b2ab556b5bf0f69d6bc98395b1cb1cd4d3f2&0">
   </a>
   </p>
