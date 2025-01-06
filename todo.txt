@@ -1,0 +1,6 @@
+done:
+add readme.md
+add license
+
+todo :
+bot tagged message
