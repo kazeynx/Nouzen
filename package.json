@@ -1,0 +1,25 @@
+{
+  "name": "kaze",
+  "version": "1.0.0",
+  "description": "Discord bot made by Kaze with many features and commands.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kaze",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^2.4.2",
+    "axios": "^1.7.9",
+    "cli-table3": "^0.6.5",
+    "colors": "^1.4.0",
+    "common-tags": "^1.8.2",
+    "discord.js": "^14.17.2",
+    "moment": "^2.30.1",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^8.9.3",
+    "os": "^0.1.2",
+    "rest": "^2.0.0"
+  }
+}

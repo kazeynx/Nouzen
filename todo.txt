@@ -1,0 +1,25 @@
+done:
+06/01/2025
+add readme.md
+add license
+
+25/01/2025
+add status
+
+26/01/2025
+basic interactioncreate.js
+delete prefix only using slash commands
+
+29/01/2025
+improve all code
+add feedback on mentionInteraction
+
+
+todo :
+bot tagged message
+setting readme.md
+
+settin semua dropdown value mentionInteraction
+ubah semua menjadi embeds
+ubah semua console
+bikin semua text cool(kalo mau)
