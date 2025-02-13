@@ -1,6 +1,6 @@
-const { EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
-const { discord, colorsHex, activity } = require('../config/bot');
-const Feedback = require('../database/models/feedback'); 
+const { EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { discord, colorsHex, activity } = require('../../config/bot');
+const Feedback = require('../../database/models/feedback'); 
 module.exports = async (client, interaction) => {
     if (interaction.isStringSelectMenu()) {
         if (interaction.customId === 'mentionIntraction') {
@@ -17,9 +17,20 @@ module.exports = async (client, interaction) => {
                         .addFields([{ name: 'lazy to do it bruh', value: 'yea whatever' }]);
                     break;
                 case 'links':
-                    embed.setTitle('Links')
-                        .setDescription('link thing')
-                        .addFields([{ name: 'te', value: 'te' }]);
+                    embed.setDescription(`
+### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:65268sleeplunarcow:1333424804576890981>｜ESSENTIAL LINK｜<a:65268sleeplunarcow:1333424804576890981>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\nYour all-in-one access to **[Nouzen](<https://discord.com/users/1231245685467119796>)**. Summon the bot, join the support server, explore the documentation, or connect with the project across multiple platforms. Whether you’re here to integrate, learn, or stay updated—everything you need is just one click away.\n
+**〔<a:60711imloved5:1333424575635132498>〕[Summon Nouzen](https://discord.com/users/1231245685467119796)**
+**〔<a:discord:1324024721955885116>〕[Join Support Server](https://discord.gg/vAkuwxrHcm)**
+**〔<a:54139umbrella:1333424364510773319>〕[Official Website](https://kazeynx.com)**
+**〔<a:6112pepenoted:1333421268413710417>〕[Terms of Service (ToS)](https://discord.gg/vAkuwxrHcm)**
+**〔<a:BlueBook:1339508240500916235>〕[Privacy Policy](https://discord.gg/vAkuwxrHcm)**
+**〔<a:computer:1339530970810028122>〕[Read Documentation](https://discord.gg/vAkuwxrHcm)**
+**〔<a:plus1:1322981868282581003>〕[Vote For Nouzen](https://top.gg/bot/1231245685467119796)**
+**〔<:github:1339530439093915748>〕[Check Out My GitHub](https://github.com/kazeynx)**
+**〔<a:tiktok:1339522023436849152>〕[Follow On Tiktok](https://www.tiktok.com/@kazeynx)**
+**〔<a:youtube:1339522035373576202>〕[Subscribe On Youtube](https://www.youtube.com/@kazeynx)**
+                        `)
+                        .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1339526241723748393/links.gif?ex=67af0a87&is=67adb907&hm=8a64a472e7afe5542fffae14e6e66f0965cae3d1dd7f1273a21d176c996de9ab&`)
                     break;
                 case 'support':
                     embed.setTitle('Support')

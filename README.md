@@ -1,5 +1,5 @@
 <h2 align="center">
-<img src="https://cdn.discordapp.com/attachments/1322940109036851282/1322941409711620136/standard_5.gif?ex=677b4673&is=6779f4f3&hm=81ec317f31b77b9a2d8f4acc145e8342de29b33b38e4af61e30198e9ccd5f650&"/>
+<img src="https://cdn.discordapp.com/attachments/1334509081788153866/1335984328311832728/Nouzen_Banner.gif?ex=67a227dd&is=67a0d65d&hm=c2e5ede574348c1b852a1d128b4f1c6aaae06b8f709bc0c529dc46d459ebbd8c&"/>
   
 [![Version][version-shield]](version-url)
 [![Contributors][contributors-shield]][contributors-url]
@@ -84,17 +84,17 @@ commands only 3 cus the bot still on proggress
 <br />
 <p align="center">
   <a href="https://github.com/kazeynx/Nouzen">
-    <img src="https://media.discordapp.net/attachments/1322940109036851282/1325363934357749790/terminal.png?ex=677b84da&is=677a335a&hm=2860c24970ce1ea03178d0728d0ddd03580afb2750779628ba13dc2536a68f67&=&format=webp&quality=lossless&width=440&height=350">
+    <img src="https://cdn.discordapp.com/attachments/1334509081788153866/1335983518777606225/terminal.png?ex=67a2271c&is=67a0d59c&hm=800c94f3c2af4c819e61baf9fbc6e5da5dc7123fd9c1820ff2fdc789e3c4afc2&">
   </a>
   </p>
 <p align="center">
     <a href="https://github.com/kazeynx/Nouzen">
-    <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1325379568395354143/image.png?ex=677b9369&is=677a41e9&hm=156c6c7bfa5ab62fd4486a6773037f18555a2ef604f55bcb86ce11b041c265f6&">
+    <img src="https://cdn.discordapp.com/attachments/1334509081788153866/1334903684760342528/nouzen.png?ex=67a1852f&is=67a033af&hm=4b189189e0a4bf782efb699b0602c5545e0a28a5e52085a3faa59837e68430e0&">
   </a>
   </p>
 <p align="center">
       <a href="https://github.com/kazeynx/Nouzen">
-    <img src="https://cdn.discordapp.com/attachments/1322940109036851282/1325380024471261276/image.png?ex=677b93d6&is=677a4256&hm=496dca0dc7d55641615bc22462f1b2ab556b5bf0f69d6bc98395b1cb1cd4d3f2&0">
+    <img src="https://cdn.discordapp.com/attachments/1334509081788153866/1334903313447125065/feedback.png?ex=67a184d7&is=67a03357&hm=53cbcc43be45283e90515d657442e5a6199f9fd612a2146a30655778e3a1c7cc&">
   </a>
   </p>
 

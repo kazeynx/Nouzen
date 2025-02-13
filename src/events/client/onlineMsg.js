@@ -3,7 +3,6 @@ const Stats = require('../../database/models/stats');
 const { discord, colorsHex, activity } = require('../../config/bot');
 const colors = require('colors');
 const packageJson = require('../../../package.json');
-
 module.exports = async (client) => {
   let stats = await Stats.findOne();
   if (!stats) {
@@ -15,7 +14,6 @@ module.exports = async (client) => {
       console.error(`${colors.cyan(colors.bold(client.user.username))} | ${colors.red('Failed to find the specified channel.')}`);
       return;
   }
-
   const developer = await client.users.fetch(discord.developer);
   const startEmbed = new EmbedBuilder()
     .setTitle(`Yokso, watashi no Soul Society!`)
@@ -25,7 +23,7 @@ module.exports = async (client) => {
 〔<a:announcement:1034742298149404672>〕${client.user.tag} Status!
 〔<a:crown_uo:1034744865998778378>〕Developer : <@${developer.id}>
 〔<a:DIAMOND:1034743982216990730>〕Bot Status : Online <a:onlinePing:1034699594036166656>
-〔<a:Emoji_Snumpus:1034699499744018432>〕Start Date : ${`<t:${Math.floor(new Date().getTime() / 1000)}:R>`}
+〔<a:Emoji_Snumpus:1034699499744018432>〕Start Date : <t:${Math.floor(Date.now() / 1000)}:f>
 〔<a:campfire:1034699838547304540>〕Ping : ${client.ws.ping} ms
 〔<a:slashcommands:1034743128915189770>〕Total Commands : ${client.commands.size} 
 〔<a:computer:1034748631045111839>〕Total Servers : ${client.guilds.cache.size} 
