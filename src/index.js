@@ -1,5 +1,11 @@
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
+});
 const { token } = require('./config/config.json');
 const mongoose = require('./database/connect');
 const loadHandlers = require('./handlers/loader/handlerloader');
@@ -8,7 +14,7 @@ const Stats = require('./database/models/stats');
 const mentionBotHandler = require('./events/client/mentionBot');
 const statusBot = require('./events/client/botStatus');
 const onlineMessage = require('./events/client/onlineMsg');
-const mentionInterac = require('./interactions/client/mentionInteraction');
+
 let totalMessages = 0;
 let totalCommandsUsed = 0;
 client.commands = new Collection();
@@ -16,54 +22,38 @@ client.commands = new Collection();
 loadHandlers(client);
 
 client.once('ready', async () => {
-  mongoose(client);
-  statusBot(client);
-  onlineMessage(client);
-  try {
-    const stats = await Stats.findOne();
-    if (stats) {
-      totalMessages = stats.totalMessages;
-      totalCommandsUsed = stats.totalCommandsUsed;
-    } else {
-      await Stats.create({ totalMessages: 0, totalCommandsUsed: 0 });
+    mongoose(client);
+    statusBot(client);
+    onlineMessage(client);
+    try {
+        const stats = await Stats.findOne();
+        if (stats) {
+            totalMessages = stats.totalMessages;
+            totalCommandsUsed = stats.totalCommandsUsed;
+        } else {
+            await Stats.create({ totalMessages: 0, totalCommandsUsed: 0 });
+        }
+    } catch (error) {
+        console.error('Error fetching stats:', error);
     }
-  } catch (error) {
-    console.error('Error fetching stats:', error);
-  }
 });
 
 client.on('interactionCreate', async (interaction) => {
-  if (interaction.isCommand()) {
-    totalCommandsUsed++; 
     try {
-      await Stats.findOneAndUpdate({}, { totalCommandsUsed }, { upsert: true });
+        await interactionCreateHandler.execute(client, interaction);
     } catch (error) {
-      console.error('Error updating totalCommandsUsed in database:', error);
+        console.error('Error handling interaction:', error);
     }
-  }
-  if (interaction.isStringSelectMenu()) {
-    mentionInterac(client, interaction); 
-}
-if (interaction.isModalSubmit()) {
-  mentionInterac(client, interaction);
-}
-  interactionCreateHandler.execute(client, interaction); 
 });
 
 client.on('messageCreate', async (message) => {
-  mentionBotHandler(client, message);
-  let stats;
-  try {
-    stats = await Stats.findOne();
-  } catch (error) {
-    console.error('Error fetching stats:', error);
-  }
-  totalMessages++; 
-  try {
-    await Stats.findOneAndUpdate({}, { totalMessages }, { upsert: true }); 
-  } catch (error) {
-    console.error('Error updating totalMessages in database:', error);
-  }
+    mentionBotHandler(client, message);
+    totalMessages++; 
+    try {
+        await Stats.findOneAndUpdate({}, { totalMessages }, { upsert: true }); 
+    } catch (error) {
+        console.error('Error updating totalMessages in database:', error);
+    }
 });
 
 client.login(token);

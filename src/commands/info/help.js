@@ -5,6 +5,6 @@ module.exports = {
     .setName('help')
     .setDescription('commands help'),
   async execute(interaction) {
-    await interaction.reply(`${interaction.user.username} : Where are the commands?  \nNouzen : <a:3683girlsleep:1333419908834398219> \n\nThat’s it for the short convo, thank you.`);
+    await interaction.reply(`${interaction.user.username} : Where are the commands?  \nNouzen : <a:3683girlsleep:1333419908834398219> \n\nThat’s it for the short convo, thank you.\n\naight nvm type **</info:1341717879971643434>** to see the commands`);
   }
 };

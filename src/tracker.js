@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
-
+const TrackerToken = require('./config/bot')
 const tracker = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences]
 });
@@ -34,4 +34,4 @@ tracker.on('presenceUpdate', (oldPresence, newPresence) => {
     if (channel) channel.send({ embeds: [embed] });
 });
 
-tracker.login(``);
+tracker.login(`${TrackerToken}`);

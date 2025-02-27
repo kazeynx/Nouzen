@@ -55,7 +55,7 @@ module.exports = async (client, message) => {
         const row1 = new ActionRowBuilder()
           .addComponents(
             new StringSelectMenuBuilder()
-              .setCustomId('mentionIntraction')
+              .setCustomId('mentionInteraction')
               .setPlaceholder('Choose Your Path')
               .addOptions([
                 {
@@ -71,10 +71,10 @@ module.exports = async (client, message) => {
                   value: 'links',
                 },
                 {
-                  label: 'Support',
+                  label: 'Donations',
                   description: 'Help us grow and improve with your support.',
                   emoji: '<a:84765birthdaygift:1333425451342762045>',
-                  value: 'support',
+                  value: 'donations',
                 },
                 {
                   label: 'Updates & News',

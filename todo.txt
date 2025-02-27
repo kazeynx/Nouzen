@@ -16,9 +16,9 @@ add feedback on mentionInteraction
 
 
 todo :
-bot tagged message
 setting readme.md
 
+benerin deskripsi feedback modals, maxsimal berapa huruf gtu biar ga ngotak
 settin semua dropdown value mentionInteraction
 ubah semua menjadi embeds
 ubah semua console

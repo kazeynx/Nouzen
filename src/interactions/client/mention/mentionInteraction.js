@@ -1,9 +1,11 @@
-const { EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { discord, colorsHex, activity } = require('../../config/bot');
-const Feedback = require('../../database/models/feedback'); 
+const { EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, StringSelectMenuBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { discord, colorsHex, activity } = require('../../../config/bot');
+const Feedback = require('../../../database/models/feedback');
+const pagination = require('../../pagination');
+const updates = require('../../../config/updates')
 module.exports = async (client, interaction) => {
     if (interaction.isStringSelectMenu()) {
-        if (interaction.customId === 'mentionIntraction') {
+        if (interaction.customId === 'mentionInteraction') {
             let embed = new EmbedBuilder()
                 .setColor(colorsHex.blue)
                 .setImage(discord.botBanner)
@@ -18,7 +20,7 @@ module.exports = async (client, interaction) => {
                     break;
                 case 'links':
                     embed.setDescription(`
-### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:65268sleeplunarcow:1333424804576890981>｜ESSENTIAL LINK｜<a:65268sleeplunarcow:1333424804576890981>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\nYour all-in-one access to **[Nouzen](<https://discord.com/users/1231245685467119796>)**. Summon the bot, join the support server, explore the documentation, or connect with the project across multiple platforms. Whether you’re here to integrate, learn, or stay updated—everything you need is just one click away.\n
+### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:65268sleeplunarcow:1333424804576890981>｜ESSENTIAL LINK｜<a:65268sleeplunarcow:1333424804576890981>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\nYour all-in-one access to **[Nouzen](<https://discord.com/users/1231245685467119796>)** <a:cattap:1333393401017794560>. Summon the bot, join the support server, explore the documentation, or connect with the project across multiple platforms <a:gensin:1333393320403271721>. Whether you’re here to integrate, learn, or stay updated—everything you need is just one click away <a:1653filmezinho:1333419064403558512>.\n
 **〔<a:60711imloved5:1333424575635132498>〕[Summon Nouzen](https://discord.com/users/1231245685467119796)**
 **〔<a:discord:1324024721955885116>〕[Join Support Server](https://discord.gg/vAkuwxrHcm)**
 **〔<a:54139umbrella:1333424364510773319>〕[Official Website](https://kazeynx.com)**
@@ -32,16 +34,61 @@ module.exports = async (client, interaction) => {
                         `)
                         .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1339526241723748393/links.gif?ex=67af0a87&is=67adb907&hm=8a64a472e7afe5542fffae14e6e66f0965cae3d1dd7f1273a21d176c996de9ab&`)
                     break;
-                case 'support':
-                    embed.setTitle('Support')
-                        .setDescription('Support Thing')
-                        .addFields([{ name: 's', value: 's' }]);
-                    break;
-                case 'updates_news':
-                    embed.setTitle('Update and News')
-                        .setDescription('update and news thing')
-                        .addFields([{ name: 'u', value: 'u' }]);
-                    break;
+                case 'donations': {
+                    embed.setDescription(`
+### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:84765birthdaygift:1333425451342762045>｜DONATIONS｜<a:84765birthdaygift:1333425451342762045>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
+Alright <a:gojo:1340170971390279690>, let’s be real, **[Nouzen](<https://discord.com/users/1231245685467119796>)** isn’t just some bot. It’s a project built with care, designed to make automation smoother  <a:61703throwingmoney:1333424613455302710>, smarter, and actually useful <a:6157gawrgurapopcorn:1333895755194306801>. But good things don’t just happen on their own <a:58668pixelpikachu:1333424537609703447>. Keeping **[Nouzen](<https://discord.com/users/1231245685467119796>)** online, adding new features, and making sure everything runs flawlessly takes time, effort, and, yeah… money <a:HutaoMoneyy:1340206306417578075>.  
+
+If you’ve ever used **[Nouzen](<https://discord.com/users/1231245685467119796>)** and thought, *"Damn, this bot is actually solid"* <a:3073gawrgurafingerguns:1333895541360169031> or if you just want to see it grow, this is your chance to be part of something bigger <a:41519headpat6:1333423950994215024>.  
+### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:nerd_glasses:1340213623154282526>｜WHY DONATE｜<a:nerd_glasses:1340213623154282526>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
+**〔<a:uptime:1333386432018124850>〕Keeps Nouzen Online**
+Servers don’t run on dreams, and uptime isn’t free.  
+**〔<a:59754gojocatvibe:1333424555124985947>〕Brings New Features to Life**
+More updates, better automation, fewer bugs.  
+**〔<a:gojo:1340170971390279690>〕Improves Performance**
+Faster responses, better stability, smoother experience.  
+**〔<a:dev:1324026614987624529>〕Supports the Dev**
+Every bit of support helps free up time to make Nouzen even better. 
+### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:money:1333386445142102038>｜DONATE NOW｜<a:money:1333386445142102038>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
+Pick an option from the **\`selection panel\`** below <a:mlem:1340171022464319588> and choose how you want to support <a:3452gawrgurasinganimated:1333895660113629315> . Whether it’s a one-time donation, monthly backing, or another way to contribute, every bit helps keep Nouzen alive and evolving. 
+                        `)
+                        .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1339526241723748393/links.gif?ex=67af0a87&is=67adb907&hm=8a64a472e7afe5542fffae14e6e66f0965cae3d1dd7f1273a21d176c996de9ab&`)
+                    const supportMenu = new StringSelectMenuBuilder()
+                        .setCustomId('donationInteraction')
+                        .setPlaceholder('Choose Your Options')
+                        .addOptions([
+                            { label: 'Nouzen’s Vanguard ', value: 'vanguard', description: 'A list of those who funded Nouzen’s future.', emoji: '<a:LightBlueFlower:1340171052961107978>' },
+                            { label: 'Crypto', value: 'crypto', description: 'Donate using cryptocurrency', emoji: '<:Binance:1340300959233998909>' },
+                            { label: 'Patreon', value: 'patreon', description: 'Donate using patreon', emoji: '<:patreoniconfilled256:1340303337748172861>'},
+                            { label: 'PayPal', value: 'paypal', description: 'Donate using PayPal', emoji: '<:paypal:1340300959888310373>' },
+                            { label: 'QRIS', value: 'qris', description: 'Donate using QRIS', emoji: '<:qris:1341319327864983552>' },
+                            { label: 'Trakteer', value: 'trakteer', description: 'Donate using Trakteer', emoji: '<:trakteer:1342457798616940564>' },
+                            { label: 'Ko-fi', value: 'kofi', description: 'Donate using Ko-fi', emoji: '<:Kofi_pixel:1340302960915386439>' },
+                        ]);
+                    const actionRow = new ActionRowBuilder().addComponents(supportMenu);
+                    await interaction.reply({
+                        embeds: [embed],
+                        components: [actionRow], 
+                        ephemeral: true,
+                    });
+                
+                    return;
+                }
+                case 'updates_news': {
+                    if (updates.length === 0) 
+                        return interaction.reply({ content: 'No updates available.', ephemeral: true });
+                
+                    const pages = updates.map(update => 
+                        new EmbedBuilder()
+                            .setDescription(`### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:59754gojocatvibe:1333424555124985947>｜UPDATES ${update.version}｜<a:59754gojocatvibe:1333424555124985947>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\n\n\n**〔<a:announcement:1324031496490713128>〕${update.title}**\n${update.description}\n**〔<a:3511gawrgurashyanimated:1333895696486498416>〕Internal Notes** \n${update.notes}\n**〔<a:99609calendar:1333425836853952622>〕**${update.date}`)
+                            .setImage(update.image || null)
+                            .setColor(colorsHex.blue)
+                            .setFooter({ text: discord.footer})
+                            .setTimestamp()
+                        );
+                
+                        return pagination(interaction, pages, 30 * 1000);
+                    }
                 case 'premium_features':
                     embed.setTitle('Premium Features')
                         .setDescription('Premium Thing')
@@ -103,10 +150,17 @@ module.exports = async (client, interaction) => {
                     break;
             }
 
-            await interaction.reply({
-                embeds: [embed],
-                ephemeral: true,
-            });
+            if (interaction.deferred || interaction.replied) {
+                await interaction.followUp({
+                    embeds: [embed],
+                    ephemeral: true,
+                });
+            } else {
+                await interaction.reply({
+                    embeds: [embed],
+                    ephemeral: true,
+                });
+            }
         }
     } else if (interaction.isModalSubmit()) {
         if (interaction.customId === 'feedbackModal') {
