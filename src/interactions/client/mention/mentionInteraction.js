@@ -11,7 +11,6 @@ module.exports = async (client, interaction) => {
                 .setImage(discord.botBanner)
                 .setFooter({ text: discord.footer })
                 .setTimestamp();
-
             switch (interaction.values[0]) {
                 case 'commands':
                     embed.setTitle('Commands')
@@ -30,16 +29,15 @@ module.exports = async (client, interaction) => {
 **〔<a:plus1:1322981868282581003>〕[Vote For Nouzen](https://top.gg/bot/1231245685467119796)**
 **〔<:github:1339530439093915748>〕[Check Out My GitHub](https://github.com/kazeynx)**
 **〔<a:tiktok:1339522023436849152>〕[Follow On Tiktok](https://www.tiktok.com/@kazeynx)**
-**〔<a:youtube:1339522035373576202>〕[Subscribe On Youtube](https://www.youtube.com/@kazeynx)**
-                        `)
+**〔<a:youtube:1339522035373576202>〕[Subscribe On Youtube](https://www.youtube.com/@kazeynx)**`)
                         .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1339526241723748393/links.gif?ex=67af0a87&is=67adb907&hm=8a64a472e7afe5542fffae14e6e66f0965cae3d1dd7f1273a21d176c996de9ab&`)
                     break;
                 case 'donations': {
                     embed.setDescription(`
 ### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:84765birthdaygift:1333425451342762045>｜DONATIONS｜<a:84765birthdaygift:1333425451342762045>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
 Alright <a:gojo:1340170971390279690>, let’s be real, **[Nouzen](<https://discord.com/users/1231245685467119796>)** isn’t just some bot. It’s a project built with care, designed to make automation smoother  <a:61703throwingmoney:1333424613455302710>, smarter, and actually useful <a:6157gawrgurapopcorn:1333895755194306801>. But good things don’t just happen on their own <a:58668pixelpikachu:1333424537609703447>. Keeping **[Nouzen](<https://discord.com/users/1231245685467119796>)** online, adding new features, and making sure everything runs flawlessly takes time, effort, and, yeah… money <a:HutaoMoneyy:1340206306417578075>.  
-
 If you’ve ever used **[Nouzen](<https://discord.com/users/1231245685467119796>)** and thought, *"Damn, this bot is actually solid"* <a:3073gawrgurafingerguns:1333895541360169031> or if you just want to see it grow, this is your chance to be part of something bigger <a:41519headpat6:1333423950994215024>.  
+
 ### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:nerd_glasses:1340213623154282526>｜WHY DONATE｜<a:nerd_glasses:1340213623154282526>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
 **〔<a:uptime:1333386432018124850>〕Keeps Nouzen Online**
 Servers don’t run on dreams, and uptime isn’t free.  
@@ -49,9 +47,9 @@ More updates, better automation, fewer bugs.
 Faster responses, better stability, smoother experience.  
 **〔<a:dev:1324026614987624529>〕Supports the Dev**
 Every bit of support helps free up time to make Nouzen even better. 
+
 ### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:money:1333386445142102038>｜DONATE NOW｜<a:money:1333386445142102038>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
-Pick an option from the **\`selection panel\`** below <a:mlem:1340171022464319588> and choose how you want to support <a:3452gawrgurasinganimated:1333895660113629315> . Whether it’s a one-time donation, monthly backing, or another way to contribute, every bit helps keep Nouzen alive and evolving. 
-                        `)
+Pick an option from the **\`selection panel\`** below <a:mlem:1340171022464319588> and choose how you want to support <a:3452gawrgurasinganimated:1333895660113629315> . Whether it’s a one-time donation, monthly backing, or another way to contribute, every bit helps keep Nouzen alive and evolving.`)
                         .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1339526241723748393/links.gif?ex=67af0a87&is=67adb907&hm=8a64a472e7afe5542fffae14e6e66f0965cae3d1dd7f1273a21d176c996de9ab&`)
                     const supportMenu = new StringSelectMenuBuilder()
                         .setCustomId('donationInteraction')
@@ -150,17 +148,10 @@ Pick an option from the **\`selection panel\`** below <a:mlem:134017102246431958
                     break;
             }
 
-            if (interaction.deferred || interaction.replied) {
-                await interaction.followUp({
-                    embeds: [embed],
-                    ephemeral: true,
-                });
-            } else {
-                await interaction.reply({
-                    embeds: [embed],
-                    ephemeral: true,
-                });
-            }
+            await interaction.update({
+                embeds: [embed],
+                components: interaction.message.components,
+            });
         }
     } else if (interaction.isModalSubmit()) {
         if (interaction.customId === 'feedbackModal') {

@@ -1,7 +1,8 @@
-const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, Collection } = require('discord.js');
 const { discord, colorsHex } = require(`../../config/bot`);
 const packageJson = require('../../../package.json');
 const Stats = require('../../database/models/stats'); 
+const cooldowns = new Collection();
 
 module.exports = async (client, message) => {
     let stats = await Stats.findOne();
@@ -9,6 +10,31 @@ module.exports = async (client, message) => {
       stats = await Stats.create({ totalMessages: 0, totalCommandsUsed: 0 });
     }
     if (message.mentions.has(client.user) && !message.mentions.everyone && message.mentions.roles.size === 0) {
+      if (message.author.bot) return;
+      const cooldownTime = 5000;
+      const userId = message.author.id;
+  
+      if (!cooldowns.has(userId)) cooldowns.set(userId, 0);
+      const lastUsed = cooldowns.get(userId);
+      const now = Date.now();
+  
+      if (now - lastUsed < cooldownTime) {
+          const cooldownTimestamp = Math.floor((lastUsed + cooldownTime) / 1000); 
+          const cooldownEmbed = new EmbedBuilder()
+              .setColor('#ff0000')
+              .setTitle('Cooldown Active ⏳')
+              .setDescription(`wait <t:${cooldownTimestamp}:R> They Don't Love You Like I Love You`)
+              .setFooter({ text: 'Nouzen System' });
+  
+          const sentMessage = await message.reply({ embeds: [cooldownEmbed] });
+          setTimeout(() => {
+              sentMessage.delete().catch(() => {});
+          }, cooldownTime);
+          return;
+      }
+  
+      cooldowns.set(userId, now);
+
         message.react(`<a:loading:1333394652451045456>`);
         const uptimeTimestamp = Math.floor(Date.now() / 1000 - client.uptime / 1000);
         const mentionEmbed = new EmbedBuilder()
@@ -20,7 +46,6 @@ module.exports = async (client, message) => {
     <a:1639spoopypepe:1333419051569119363>_You thought you were in control? Let me correct that misconception <a:2560luffy12:1333419451902853181>. Every move you make, every command you type, every second you spend here—it’s all part of my design I’ve already set in motion.._ <a:4310peepomindblown:1333420310183280671>
     
     ### **✮*•̩̩͙✧•̩̩͙*˚✧*˚〔<a:5565cloud:1333420883984908329>｜DEVELOPERS｜<a:5565cloud:1333420883984908329>〕˚*✧˚*•̩̩͙✧•̩̩͙*˚✮**
-    
     <a:52563totoropeeking:1333424335544647710> Hey there! I’m **[Kazeynx](<https://discord.com/users/1138837639382966384>)**, the mind behind **[Nouzen](<https://discord.com/users/1231245685467119796>)** <a:2356luffy24:1333419403538202656>. Every line of code was built with dedication to help you master your server effortlessly <a:3683girlsleep:1333419908834398219>. Got ideas or noticed something off? Share them with me <a:39554katherinespinunreliable:1333423934049226803>. Together, we’ll push **[Nouzen](<https://discord.com/users/1231245685467119796>)** to new heights—because perfection is always within reach <a:8276pepecaught:1333422120637562942>.
     
     ### **✮*•̩̩͙✧•̩̩͙*˚✧*˚〔<a:17033vaporeon:1333423139232677888>｜FEATURE LIST｜<a:17033vaporeon:1333423139232677888>〕˚*✧˚*•̩̩͙✧•̩̩͙*˚✮**
@@ -32,6 +57,7 @@ module.exports = async (client, message) => {
     〔📖〕Information     〔🔊〕Music            
     〔🌸〕Anime           〔🧸〕And More                 
 ╩═══════════════════════════════════════════╩\`\`\`**
+
 ### **✮*•̩̩͙✧•̩̩͙*˚✧*˚〔<a:65023lightning:1333424783752302715>｜BOT STATISTICS｜<a:65023lightning:1333424783752302715>〕˚*✧˚*•̩̩͙✧•̩̩͙*˚✮**
     **〔<a:DIAMOND:1034743982216990730>〕**Bot Status : **Online <a:uptime:1333386432018124850>**
     **〔<a:setting:1324015494768103556>〕**Bot Version : **v${packageJson.version}**
@@ -120,8 +146,9 @@ module.exports = async (client, message) => {
                 },
               ])
           );
-        await message.channel.send({ embeds: [mentionEmbed], components: [row1] });
-        await message.reactions.removeAll()
-        .catch(error => console.error('Failed to clear reactions: ', error));
-      }
+        await message.reply({ embeds: [mentionEmbed], components: [row1] });
+        setTimeout(() => {
+          message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
+        }, 500);
+    }
 };

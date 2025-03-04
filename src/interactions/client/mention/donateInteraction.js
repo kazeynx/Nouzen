@@ -3,7 +3,6 @@ const { discord, colorsHex } = require('../../../config/bot');
 
 module.exports = async (client, interaction) => {
     if (interaction.isStringSelectMenu()) {
-        await interaction.deferReply({ ephemeral: true }); // Prevent timeout
         
         if (interaction.customId === 'donationInteraction') {
             let embed = new EmbedBuilder()
@@ -56,7 +55,7 @@ module.exports = async (client, interaction) => {
                                 .setStyle(ButtonStyle.Danger)
                         );
                     
-                    return interaction.editReply({ embeds: [embed], components: [cryptoButtons] });
+                        return interaction.update({ embeds: [embed], components: [...interaction.message.components, cryptoButtons] });
                 case 'patreon':
                     embed.setTitle('Patreon').setDescription('Patreon Details');
                     break;
@@ -80,7 +79,7 @@ module.exports = async (client, interaction) => {
                         .setDescription('Invalid selection, please try again.');
                     break;
             }
-            return interaction.editReply({ embeds: [embed] });
+            return interaction.update({ embeds: [embed] });
         }
     }
 
