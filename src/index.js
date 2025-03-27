@@ -9,8 +9,7 @@ const mentionBotHandler = require('./events/client/mentionBot');
 const statusBot = require('./events/client/botStatus');
 const onlineMessage = require('./events/client/onlineMsg');
 const mentionInterac = require('./interactions/client/mention/mentionInteraction');
-const donateInterac = require('./interactions/client/mention/donateInteraction')
-
+//const donateInterac = require ('./interactions/client/mention/donateInteraction')
 let totalMessages = 0;
 let totalCommandsUsed = 0;
 client.commands = new Collection();
@@ -45,9 +44,11 @@ client.on('interactionCreate', async (interaction) => {
   }
   if (interaction.isStringSelectMenu()) {
     mentionInterac(client, interaction); 
-    donateInterac(client, interaction); 
 }
 if (interaction.isModalSubmit()) {
+  mentionInterac(client, interaction);
+}
+if (interaction.isButton()) {
   mentionInterac(client, interaction);
 }
   interactionCreateHandler.execute(client, interaction); 

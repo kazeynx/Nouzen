@@ -23,3 +23,6 @@ settin semua dropdown value mentionInteraction
 ubah semua menjadi embeds
 ubah semua console
 bikin semua text cool(kalo mau)
+
+
+terakhir di mentionInteraction line 191 buat deskripsi tiap case

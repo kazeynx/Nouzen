@@ -3,8 +3,7 @@ const { discord, colorsHex } = require('../../../config/bot');
 
 module.exports = async (client, interaction) => {
     if (interaction.isStringSelectMenu()) {
-        
-        if (interaction.customId === 'donationInteraction') {
+        if (interaction.customId === 'donationInteractions') {
             let embed = new EmbedBuilder()
                 .setColor(colorsHex.blue)
                 .setImage(discord.botBanner)
@@ -94,19 +93,19 @@ if (interaction.isButton()) {
     );
 
     switch (interaction.customId) {
-        case 'btc':
+        case 'btcs':
             embed.setDescription(`### ✮•̩̩͙✧•̩̩͙˚✧˚〔<a:BitCoin:1340205948056113204>｜BITCOIN (BTC)｜<a:BitCoin:1340205948056113204>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\n\`\`\`bc1q6pysg2x4hdrxk0fsnsx69r7cc3t82waeh9utq3\`\`\``)
                 .setImage('https://cdn.discordapp.com/attachments/1344352803082207313/1344356617218686986/bitcoin_add.png');
             break;
-        case 'eth':
+        case 'eths':
             embed.setDescription(`### ✮•̩̩͙✧•̩̩͙˚✧˚〔<:Ethereum:1344396102329434152>｜ETHEREUM(ETH)｜<:Ethereum:1344396102329434152>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\n\`\`\`0xB7C6A2F0C25190C0002820E91bc126a6321BbF1b\`\`\``)
                 .setImage('https://cdn.discordapp.com/attachments/1344352803082207313/1344356636164231248/ethereum_add.png');
             break;
-        case 'xmr':
+        case 'xmrs':
             embed.setDescription(`### ✮•̩̩͙✧•̩̩͙˚✧˚〔<:Monero:1344396096767655967>｜MONERO (XMR)｜<:Monero:1344396096767655967>〕˚✧˚•̩̩͙✧•̩̩͙˚✮\n\`\`\`45td5msnzVM5MvkGfKvNqfNrJfeQL21H7SK4vqFEss1339WGz2T9acbJX7e4RL3z9gKZVYkPfdzdWci95VM5gSrZHhJrEUT\`\`\``)
                 .setImage('https://cdn.discordapp.com/attachments/1344352803082207313/1344356659618910282/monero_add.png');
             break;
-        case 'crypto': // Balik ke menu Crypto
+        case 'cryptos': // Balik ke menu Crypto
             embed.setDescription(`
 ### ✮•̩̩͙✧•̩̩͙˚✧˚〔<:Binance:1340300959233998909>｜NOUZENVERSE｜<:Binance:1340300959233998909>〕˚✧˚•̩̩͙✧•̩̩͙˚✮
 <a:luv:1333393383670153226> Nouzen doesn’t run on thin air—servers cost money, and keeping it online takes real support. If you want to help keep it going strong, crypto is the way <a:3149gawrgurasmuganimated:1333895646117363713>. Let’s push Nouzen to the next level together <a:79265skellydance:1333425224699351081>.

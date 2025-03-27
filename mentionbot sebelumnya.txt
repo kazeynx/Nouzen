@@ -4,11 +4,43 @@ const packageJson = require('../../../package.json');
 const Stats = require('../../database/models/stats'); 
 const cooldowns = new Collection();
 
-function getMentionEmbed(client, stats) {
-    const uptimeTimestamp = Math.floor(Date.now() / 1000 - client.uptime / 1000);
-    return new EmbedBuilder()
-        .setColor(colorsHex.blue)
-        .setDescription(`
+module.exports = async (client, message) => {
+    let stats = await Stats.findOne();
+    if (!stats) {
+      stats = await Stats.create({ totalMessages: 0, totalCommandsUsed: 0 });
+    }
+    if (message.mentions.has(client.user) && !message.mentions.everyone && message.mentions.roles.size === 0) {
+      if (message.author.bot) return;
+      const cooldownTime = 5000;
+      const userId = message.author.id;
+  
+      if (!cooldowns.has(userId)) cooldowns.set(userId, 0);
+      const lastUsed = cooldowns.get(userId);
+      const now = Date.now();
+  
+      if (now - lastUsed < cooldownTime) {
+          const cooldownTimestamp = Math.floor((lastUsed + cooldownTime) / 1000); 
+          const cooldownEmbed = new EmbedBuilder()
+              .setColor('#ff0000')
+              .setTitle('Cooldown Active ⏳')
+              .setDescription(`wait <t:${cooldownTimestamp}:R> They Don't Love You Like I Love You`)
+              .setFooter({ text: 'Nouzen System' });
+  
+          const sentMessage = await message.reply({ embeds: [cooldownEmbed] });
+          setTimeout(() => {
+              sentMessage.delete().catch(() => {});
+          }, cooldownTime);
+          return;
+      }
+  
+      cooldowns.set(userId, now);
+
+        message.react(`<a:loading:1333394652451045456>`);
+        function getMentionEmbed(client, stats) {
+        const uptimeTimestamp = Math.floor(Date.now() / 1000 - client.uptime / 1000);
+        return new EmbedBuilder()
+          .setColor(colorsHex.blue)
+          .setDescription(`
 **˚✧༺〔<a:54139umbrella:1333424364510773319>｜INFORMATION｜<a:54139umbrella:1333424364510773319>〕༻✧˚**
 **[Nouzen](<https://discord.com/users/1231245685467119796>)** is an existence that helps you make your server more automatic by simplifying tasks <a:1968myaowlcatpeek:1333419214505250827>, managing roles, moderating chats, and providing seamless integration of powerful features <a:10107melodysmart:1333422941848862740>. With **[Nouzen](<https://discord.com/users/1231245685467119796>)**, you can create a highly efficient and engaging environment for your community, ensuring that everything runs smoothly while you focus on building connections and growing your server <a:gura:1333393351730528287>. 
             
@@ -42,17 +74,16 @@ function getMentionEmbed(client, stats) {
 
 **˚✧༺〔<a:65268sleeplunarcow:1333424804576890981>｜GET READY NOW｜<a:65268sleeplunarcow:1333424804576890981>〕༻✧˚**
 <a:59754gojocatvibe:1333424555124985947> Ready to unlock **[Nouzen’s](<https://discord.com/users/1231245685467119796>)** magic? Type **</help:1337792324176056432>** and discover all the commands, or click the **\`selection panel\`** bellow and feel the power at your fingertips <a:9114skillissuepeepo:1333422371562061898>. The possibilities are limitless—let's elevate your server to new heights, effortlessly <a:4969myaowlcatnod:1333420589091651624>.`)
-        .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1336790298520715314/lv_0_20250206030032.gif`)
-        .setTimestamp()
-        .setFooter({ text: discord.footer });
-}
-
-function getMentionComponents() {
-    return new ActionRowBuilder().addComponents(
-        new StringSelectMenuBuilder()
-            .setCustomId('mentionInteraction')
-            .setPlaceholder('Choose Your Path')
-            .addOptions([
+          .setImage(`https://cdn.discordapp.com/attachments/1334509081788153866/1336790298520715314/lv_0_20250206030032.gif?ex=67ac56bb&is=67ab053b&hm=83b34092d541f867e91c55921c50e0882cb693d0be6812d83bc9769f12c1dc85&`)
+          .setTimestamp()
+          .setFooter({ text: discord.footer });
+        }
+        function getMentionComponents() {
+          return new ActionRowBuilder().addComponents(
+              new StringSelectMenuBuilder()
+              .setCustomId('mentionInteraction')
+              .setPlaceholder('Choose Your Path')
+              .addOptions([
                 {
                   label: 'Commands',
                   description: 'Discover all the Commands you need to make your server thrive.',
@@ -114,51 +145,13 @@ function getMentionComponents() {
                   value: 'suggestion',
                 },
               ])
-    );
-}
-
-module.exports = async (client, message) => {
-    let stats = await Stats.findOne();
-    if (!stats) {
-        stats = await Stats.create({ totalMessages: 0, totalCommandsUsed: 0 });
-    }
-
-    if (message.mentions.has(client.user) && !message.mentions.everyone && message.mentions.roles.size === 0) {
-        if (message.author.bot) return;
-
-        const cooldownTime = 5000;
-        const userId = message.author.id;
-
-        if (!cooldowns.has(userId)) cooldowns.set(userId, 0);
-        const lastUsed = cooldowns.get(userId);
-        const now = Date.now();
-
-        if (now - lastUsed < cooldownTime) {
-            const cooldownTimestamp = Math.floor((lastUsed + cooldownTime) / 1000);
-            const cooldownEmbed = new EmbedBuilder()
-                .setColor('#ff0000')
-                .setTitle('Cooldown Active ⏳')
-                .setDescription(`Wait <t:${cooldownTimestamp}:R>. Don't spam.`)
-                .setFooter({ text: 'Nouzen System' });
-
-            const sentMessage = await message.reply({ embeds: [cooldownEmbed] });
-            setTimeout(() => sentMessage.delete().catch(() => {}), cooldownTime);
-            return;
+            );
         }
-
-        cooldowns.set(userId, now);
-        message.react(`<a:loading:1333394652451045456>`);
-
-        await message.reply({
-            embeds: [getMentionEmbed(client, stats)],
-            components: [getMentionComponents()]
-        });
-
+        await message.reply({ embeds: [getMentionEmbed(client, stats)], components: [getMentionComponents()]
+      });
         setTimeout(() => {
-            message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
+          message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
         }, 500);
     }
+    module.exports = { getMentionEmbed, getMentionComponents };
 };
-
-module.exports.getMentionEmbed = getMentionEmbed;
-module.exports.getMentionComponents = getMentionComponents;
