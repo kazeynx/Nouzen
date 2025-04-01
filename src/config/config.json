@@ -2,8 +2,10 @@
     "owner": "1138837639382966384",
     "token": "", 
     "tokentracker": "",
-    "mongoUri": "mongodb+srv://Kaze:Skillissue517.@kaze.k771epw.mongodb.net/?retryWrites=true&w=majority&appName=Kaze",
+    "githubUsername": "kazeynx",
+    "githubAuth": "",
+    "mongoUri": "",
     "clientId": "1231245685467119796",
-    "guildId": "1322934229268693169"
+    "guildId": "1331648256484311152"
 }
   

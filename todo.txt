@@ -2,6 +2,7 @@ done:
 06/01/2025
 add readme.md
 add license
+nodemon index.js
 
 25/01/2025
 add status
@@ -23,6 +24,9 @@ settin semua dropdown value mentionInteraction
 ubah semua menjadi embeds
 ubah semua console
 bikin semua text cool(kalo mau)
+ganti mentionInteraction.js jadi mainmenu.js aja biar enak soalnya itu buat mention, help, sama pas join server
 
 
-terakhir di mentionInteraction line 191 buat deskripsi tiap case
+tambahin total online user  di setiap stats bot, update stats yang ada di selection menu case server
+
+terakhir mau buat stats untuk case github

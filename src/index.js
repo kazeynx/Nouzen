@@ -1,5 +1,28 @@
-const { Client, GatewayIntentBits, Collection } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js');
+const client = new Client({
+  intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMembers,
+      GatewayIntentBits.GuildPresences, 
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildMessageReactions,
+      GatewayIntentBits.DirectMessages,
+      GatewayIntentBits.DirectMessageReactions,
+      GatewayIntentBits.GuildVoiceStates,
+      GatewayIntentBits.GuildModeration,
+      GatewayIntentBits.GuildExpressions,
+      GatewayIntentBits.GuildWebhooks,
+      GatewayIntentBits.GuildIntegrations,
+      GatewayIntentBits.GuildInvites,
+      GatewayIntentBits.GuildScheduledEvents,
+      GatewayIntentBits.GuildMessageTyping,
+      GatewayIntentBits.DirectMessageTyping,
+      GatewayIntentBits.AutoModerationConfiguration,
+      GatewayIntentBits.AutoModerationExecution,
+  ],
+  partials: [ Partials.Message, Partials.Channel, Partials.Reaction, Partials.User, Partials.GuildMember, Partials.ThreadMember,]
+});
 const { token } = require('./config/config.json');
 const mongoose = require('./database/connect');
 const loadHandlers = require('./handlers/loader/handlerloader');
